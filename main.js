@@ -35,3 +35,113 @@ function new_image(get_image){
         canvas.add(block_image_object);
     });
 }
+
+    window.addEventListener("keydown",my_keydown);
+
+    function my_keydown(e){
+        keypress=e.keyCode;
+        
+        if(e.shiftKey==true && keypress=='80'){
+            block_image_width=block_image_width+10;
+            block_image_height=block_image_height+10;
+            document.getElementById("current_width").innerHTML=block_image_width;
+            document.getElementById("current_height").innerHTML=block_image_height;
+        }
+
+        if(e.shiftKey==true && keypress=='77'){
+            block_image_width=block_image_width-10;
+            block_image_height=block_image_height-10;
+            document.getElementById("current_width").innerHTML=block_image_width;
+            document.getElementById("current_height").innerHTML=block_image_height;
+        }
+
+        if(keypress=='37'){
+            left();
+        }
+
+        if(keypress=='38'){
+            up();
+        }
+
+        if(keypress=='39'){
+            right();
+        }
+
+        if(keypress=='40'){
+            down();
+        }
+        if(keypress=='87'){
+            new_image('wall.jpg');
+            console.log("w");
+        }
+        if(keypress=='71'){
+            new_image('ground.png');
+            console.log("g");
+        }
+        if(keypress=='76'){
+            new_image('light_green.png');
+            console.log("l");
+        }
+        if(keypress=='84'){
+            new_image('trunk.jpg');
+            console.log("t");
+        }
+        if(keypress=='82'){
+            new_image('roof.jpg');
+            console.log("r");
+        }
+        if(keypress=='89'){
+            new_image('yellow_wall.png');
+            console.log("y");
+        }
+        if(keypress=='68'){
+            new_image('dark_green.png');
+            console.log("w");
+        }
+        if(keypress=='85'){
+            new_image('unique.png');
+            console.log("u");
+        }
+        if(keypress=='67'){
+            new_image('cloud.jpg');
+            console.log("c");
+        }
+    }
+        function up(){
+            if(player_y>=0){
+                player_y=player_y-block_image_height;
+                console.log("x="+player_x+"y="+player_y);
+                canvas.remove(player_object);
+                player_update();
+            }
+        }
+
+
+        function down(){
+            if(player_y<=550){
+                player_y=player_y+block_image_height;
+                console.log("x="+player_x+"y="+player_y);
+                canvas.remove(player_object);
+                player_update();
+            }
+        }
+        
+
+        function left(){
+            if(player_x>=0){
+                player_x=player_x-block_image_width;
+                console.log("x="+player_x+"y="+player_y);
+                canvas.remove(player_object);
+                player_update();
+            }
+        }
+        
+        function right(){
+            if(player_x<=1000){
+                player_x=player_x+block_image_width;
+                console.log("x="+player_x+"y="+player_y);
+                canvas.remove(player_object);
+                player_update();
+            }
+        }
+        
